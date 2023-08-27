@@ -1,37 +1,119 @@
+
 <!DOCTYPE html>
 <html lang="spanish">
 <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="generator" content="Pelican" />
-        <title>Portfolio de Intro a Aprendizaje Automático - Intro</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+    <meta name="author" content="salonso1602" />
+    <meta name="description" content="" />
+  <meta property="og:site_name" content="Portfolio de Intro a Aprendizaje Automático"/>
+  <meta property="og:type" content="blog"/>
+  <meta property="og:title" content="Portfolio de Intro a Aprendizaje Automático"/>
+  <meta property="og:description" content=""/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content=""/>
+
+  <title>Portfolio de Intro a Aprendizaje Automático &ndash; Category Intro</title>
+
+
 </head>
+<body class="light-theme">
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">Portfolio de Intro a Aprendizaje Automático</a></h1>
-                <nav><ul>
-                    <li><a href="/category/home.html">Home</a></li>
-                    <li class="active"><a href="/category/intro.html">Intro</a></li>
-                    <li><a href="/category/investigacion-y-analisis.html">Investigación y Análisis</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+<aside>
+  <div>
+    <a href="/">
+      <img src="/theme/img/profile.png" alt="" title="">
+    </a>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/intro-a-pandas.html">Intro a Pandas</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2023-08-22T00:00:00-03:00">
-                Published: mar. 22 Agosto 2023
-        </abbr>
+    <h1>
+      <a href="/"></a>
+    </h1>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/salonso1602.html">salonso1602</a>
-        </address>
-<p>In <a href="/category/intro.html">Intro</a>.</p>
 
-</footer><!-- /.post-info --><p>Importamos librerias y datos de UCI</p>
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="https://archive.ics.uci.edu/datasets" >UCI Datasets</a>
+          </li>
+          <li>
+            <a target="_self" href="https://www.python.org/" >Python.org</a>
+          </li>
+          <li>
+            <a target="_self" href="https://rapidminer.com/" >RapidMiner</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-Github"
+           href="https://github.com/Salonso1602"
+           target="_blank">
+          <i class="fa-brands fa-Github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-LinkedIn"
+           href="https://www.linkedin.com/in/santiago-rafael-alonso-mendez-374106218/"
+           target="_blank">
+          <i class="fa-brands fa-LinkedIn"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+
+
+
+<article>
+  <header>
+    <h2><a href="/intro-a-pandas.html#intro-a-pandas">Intro a Pandas</a></h2>
+    <p>
+      Posted on mar. 22 Agosto 2023 in <a href="/category/intro.html">Intro</a>
+
+
+    </p>
+  </header>
+  <div>
+      <div><p>Importamos librerias y datos de UCI</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data&quot;</span>
@@ -41,92 +123,60 @@
 <span class="n">iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
 </code></pre></div>
 
-<p>"pandas" nos retorna un DataFrame, un tipo de dato nuevo con amplias funcionalidades y métodos que nos facilita la manipulación de los datos.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#Medias</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Medias: &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-</code></pre></div>
+<p>"pandas" nos retorna un DataFrame, un tipo de dato nuevo con amplias funcionalidades y métodos que nos …</p></div>
+        <br>
+        <a class="btn"
+           href="/intro-a-pandas.html#intro-a-pandas">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/intro-machine-learning.html#intro-machine-learning">Intro Machine Learning</a></h2>
+    <p>
+      Posted on mar. 15 Agosto 2023 in <a href="/category/intro.html">Intro</a>
 
-<p><em>Numeric Only nos permite calcular las medias solo de las columnas numericas, para evitar errores.</em></p>
-<div class="highlight"><pre><span></span><code><span class="c1">#Desviación Estandar</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación Estandar: &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-</code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="c1">#Varianzas</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Varianzas: &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1">#Conteos de clases</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cant. Setosa:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">((</span><span class="n">iris</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Iris-setosa&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cant. Versicolor:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">((</span><span class="n">iris</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Iris-versicolor&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cant. Virginica:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">((</span><span class="n">iris</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Iris-virginica&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-</code></pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/intro-machine-learning.html" rel="bookmark"
-                           title="Permalink to Intro Machine Learning">Intro Machine Learning</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2023-08-15T00:00:00-03:00">
-                Published: mar. 15 Agosto 2023
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/salonso1602.html">salonso1602</a>
-        </address>
-<p>In <a href="/category/intro.html">Intro</a>.</p>
-
-</footer><!-- /.post-info -->                <h1>UT1 PD1 Introducción a Machine Learning</h1>
+    </p>
+  </header>
+  <div>
+      <div><h1>UT1 PD1 Introducción a Machine Learning</h1>
 <h2>¿Qué es “Machine Learning”?</h2>
 <p><em>Hacer una búsqueda rápida y listar al menos 3 definiciones de “Machine Learning” y
 responder:</em>
 - <em>¿qué tiene en común y en qué se diferencia de “Inteligencia Artificial”?</em>
 - <em>¿qué tiene en común y en qué se diferencia de “Análisis Estadístico”?</em>
-- <em>¿Cómo …</em></p>
-                <a class="readmore" href="/intro-machine-learning.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="https://archive.ics.uci.edu/datasets">UCI Datasets</a></li>
-                            <li><a href="https://www.python.org/">Python.org</a></li>
-                            <li><a href="https://rapidminer.com/">RapidMiner</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+- <em>¿Cómo …</em></p></div>
+        <br>
+        <a class="btn"
+           href="/intro-machine-learning.html#intro-machine-learning">
+          Continue reading
+        </a>
+  </div>
+</article>
 
-                            <li><a href="https://github.com/Salonso1602">Github</a></li>
-                            <li><a href="https://www.linkedin.com/in/santiago-rafael-alonso-mendez-374106218/">LinkedIn</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+  <div class="pagination">
+  </div>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
 
-                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
 
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Portfolio de Intro a Aprendizaje Automático ",
+  "url" : "",
+  "image": "",
+  "description": ""
+}
+</script>
 </body>
 </html>
