@@ -21,7 +21,34 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://salonso1602.github.io/algoritmo-linear-discriminant-analysis.html">Algoritmo Linear Discriminant Analysis</a></h1>
+                    <h1 class="entry-title"><a href="https://salonso1602.github.io/bienvenido.html">Bienvenido</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2024-08-08T00:00:00-03:00">
+                Published: jue. 08 Agosto 2024
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://salonso1602.github.io/author/salonso1602.html">salonso1602</a>
+        </address>
+<p>In <a href="https://salonso1602.github.io/category/1-home.html">1. Home</a>.</p>
+
+</footer><!-- /.post-info --><h1 id="portfolio-de-aprendizaje-automatico">Portfolio de Aprendizaje Automático</h1>
+<p>En el presente portfolio recopilaremos tanto contenido teórico y conceptual de la inteligencia artificial en las áreas de machine learning, como también la investigación y trabajo en casos particulares de forma de demostración.</p>
+<p>Se trabajará con herramientas como RapidMiner para desarrollos más gráficos del entrenamiento y aplicación de modelos, y python para aplicaciones mas integrables a otros sistemas.</p>
+<p>Accede a cualquiera de las secciones para empezar a ver mi trabajo.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://salonso1602.github.io/algoritmo-linear-discriminant-analysis.html" rel="bookmark"
+                           title="Permalink to Algoritmo Linear Discriminant Analysis">Algoritmo Linear Discriminant Analysis</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2023-09-25T00:00:00-03:00">
                 Published: lun. 25 Setiembre 2023
@@ -32,199 +59,14 @@
         </address>
 <p>In <a href="https://salonso1602.github.io/category/4-algoritmos-machine-learning.html">4. Algoritmos Machine Learning</a>.</p>
 
-</footer><!-- /.post-info --><h1 id="clasificacion-por-lda-en-python">Clasificación por LDA en python</h1>
+</footer><!-- /.post-info -->                <h1 id="clasificacion-por-lda-en-python">Clasificación por LDA en python</h1>
 <p>Análisis Discriminante Lineal es un algoritmo de machine learning que nos permite la clasificación multi-clase de datos, permitiendo la predicción de campos polinomiales.<br>
 En el presente trabajo demostraremos un proceso básico de este algoritmo en Python con SciKit Learn.  </p>
 <h2 id="analisis-preliminar-de-datos">Análisis preliminar de Datos</h2>
-<p>Utilizaremos un conjunto de datos reducido, con parámetros abstractos.  </p>
-<table>
-<thead>
-<tr>
-<th><strong>Atributo</strong></th>
-<th><strong>Tipo</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>X</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>Y</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>Label (var objetivo)</td>
-<td>polinomial</td>
-</tr>
-</tbody>
-</table>
-<h2 id="procedimiento-en-python">Procedimiento en Python</h2>
-<p>Primero importamos librerías y cargamos el dataset.  </p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">,</span> <span class="n">classification_report</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-
-<span class="n">input_file</span> <span class="o">=</span> <span class="s2">&quot;sample.csv&quot;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-</code></pre></div>
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>x</th>
-      <th>y</th>
-      <th>label</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>13</th>
-      <td>8.375419</td>
-      <td>0.520687</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>1.088070</td>
-      <td>1.150220</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>2.781084</td>
-      <td>2.550537</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>5.332441</td>
-      <td>2.088627</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>5.922597</td>
-      <td>1.881064</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<p>Podemos visualizarlos mejor con SKLearn</p>
-<div class="codehilite"><pre><span></span><code><span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
-<span class="n">cmap</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">(</span><span class="n">colors</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-
-<p><img alt="Pelican" src="../../images/ut3_ta7_files/ta7_5_0.png"></p>
-<p>Separamos las entradas de la salida y dividimos los datos para entrenar y testear.  </p>
-<div class="codehilite"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-
-<span class="n">train_X</span><span class="p">,</span> <span class="n">test_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Con los datos separados y definidos, entrenamos el modelo.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">lda</span> <span class="o">=</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">()</span>
-<span class="n">lda</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Y pasamos a la predicción y vemos el desempeño.  </p>
-<div class="codehilite"><pre><span></span><code><span class="n">y_pred</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_X</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predecidos&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Esperado&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_y</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>Predecidos
-[1 0 1 0 1]
-Esperado
-[1 0 1 0 1]
-</code></pre></div>
-
-<p>Podemos traer una tabla de desempeño más clara y específica. Nos devuelve la precisión para predecir cada clase, promedios, predicciones correctas(recall), puntaje f1 y otros.</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>              precision    recall  f1-score   support
-
-           0      1.000     1.000     1.000         2
-           1      1.000     1.000     1.000         3
-
-    accuracy                          1.000         5
-   macro avg      1.000     1.000     1.000         5
-weighted avg      1.000     1.000     1.000         5
-</code></pre></div>
-
-<p>También podemos producir la matriz de confusión</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_predictions</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x2849c60e970&gt;
-</code></pre></div>
-
-<p><img alt="Pelican" src="../../images/ut3_ta7_files/ta7_15_1.png"></p>
-<p>Podemos comparar con Regresión Logística, ya que solo hay 2 clases</p>
-<div class="codehilite"><pre><span></span><code><span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span> <span class="o">=</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">lr</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
-
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_X</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicted vs Expected&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_predictions</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>Predicted vs Expected
-              precision    recall  f1-score   support
-
-           0      1.000     1.000     1.000         2
-           1      1.000     1.000     1.000         3
-
-    accuracy                          1.000         5
-   macro avg      1.000     1.000     1.000         5
-weighted avg      1.000     1.000     1.000         5
-
----------------------------------------------------------------------------------
-&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay object at 0x000002849C3C0D00&gt;
-</code></pre></div>
-
-<p><img alt="Pelican" src="../../images/ut3_ta7_files/ta7_17_1.png"></p>
-<h1 id="conclusiones">Conclusiones</h1>
-<ul>
-<li>La librería SKLearn es muy buena para la fácil definición de modelos  </li>
-<li>Nos permite fácilmente sacar reportes claros de desempeño  </li>
-<li>En un conjunto de datos pequeños, también se pueden sacar buenos resultados, mientras las separación de las clases sea suficiente.</li>
-</ul>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>Utilizaremos un …</p>
+                <a class="readmore" href="https://salonso1602.github.io/algoritmo-linear-discriminant-analysis.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -441,30 +283,6 @@ responder:</em>
 - <em>¿qué tiene en común y en qué se diferencia de “Análisis Estadístico”?</em>
 - <em>¿Cómo …</em></p>
                 <a class="readmore" href="https://salonso1602.github.io/intro-machine-learning.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://salonso1602.github.io/bienvenido.html" rel="bookmark"
-                           title="Permalink to Bienvenido">Bienvenido</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2023-08-08T00:00:00-03:00">
-                Published: mar. 08 Agosto 2023
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://salonso1602.github.io/author/salonso1602.html">salonso1602</a>
-        </address>
-<p>In <a href="https://salonso1602.github.io/category/1-home.html">1. Home</a>.</p>
-
-</footer><!-- /.post-info -->                <h1 id="portfolio-de-aprendizaje-automatico">Portfolio de Aprendizaje Automático</h1>
-<p>En el presente portfolio recopilaremos tanto contenido teórico y conceptual de la inteligencia artificial en las áreas de machine learning, como también la investigación y trabajo en casos particulares de forma de demostración.</p>
-<p>Se trabajará con herramientas como RapidMiner para desarrollos más gráficos del entrenamiento y …</p>
-                <a class="readmore" href="https://salonso1602.github.io/bienvenido.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
