@@ -1,641 +1,200 @@
 <!DOCTYPE html>
 <html lang="spanish">
 <head>
+
+        <title>Portfolio de Intro a Aprendizaje Automático</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="generator" content="Pelican" />
-        <title>Portfolio de Intro a Aprendizaje Automático - 3. Investigación y Análisis</title>
-        <link rel="stylesheet" href="https://salonso1602.github.io/theme/css/main.css" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="https://salonso1602.github.io/theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="https://salonso1602.github.io/theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="https://salonso1602.github.io/theme/pygment.css" />
+
+        <script src="https://salonso1602.github.io/theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
 </head>
 
 <body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="https://salonso1602.github.io/">Portfolio de Intro a Aprendizaje Automático</a></h1>
-                <nav><ul>
-                    <li><a href="https://salonso1602.github.io/category/1-home.html">1. Home</a></li>
-                    <li><a href="https://salonso1602.github.io/category/2-introducciones.html">2. Introducciones</a></li>
-                    <li class="active"><a href="https://salonso1602.github.io/category/3-investigacion-y-analisis.html">3. Investigación y Análisis</a></li>
-                    <li><a href="https://salonso1602.github.io/category/4-algoritmos-machine-learning.html">4. Algoritmos Machine Learning</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://salonso1602.github.io/investigacion-caso-academia-de-deportistas.html">Investigación Caso: Academia de Deportistas</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2023-09-25T00:00:00-03:00">
-                Published: lun. 25 Setiembre 2023
-        </abbr>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://salonso1602.github.io/author/salonso1602.html">salonso1602</a>
-        </address>
-<p>In <a href="https://salonso1602.github.io/category/3-investigacion-y-analisis.html">3. Investigación y Análisis</a>.</p>
+    <div class="container">
 
-</footer><!-- /.post-info --><h1 id="clasificacion-por-lda-en-python-caso-clasificacion-deportistas">Clasificación por LDA en python: Caso Clasificación Deportistas</h1>
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="https://salonso1602.github.io/">Portfolio de Intro a Aprendizaje Automático <strong>por Rafael Alonso</strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="https://salonso1602.github.io/">Home</a></li>
+
+
+              </ul>
+            </div>
+
+<section id="content">
+<h2>Articles in the 3. Investigación y Análisis category</h2>
+
+
+   <div class="row">
+
+
+        <div class="eleven columns">
+                 <ol id="post-list">
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="https://salonso1602.github.io/investigacion-caso-academia-de-deportistas.html" rel="bookmark" title="Permalink to Investigación Caso: Academia de Deportistas">Investigación Caso: Academia de Deportistas</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2023-09-25T00:00:00-03:00"> lun. 25 Setiembre 2023 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="https://salonso1602.github.io/author/salonso1602.html"> salonso1602</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <h1 id="clasificacion-por-lda-en-python-caso-clasificacion-deportistas">Clasificación por LDA en python: Caso Clasificación Deportistas</h1>
 <h2 id="contexto">Contexto</h2>
 <p>El “Maestro”, convencido de su capacidad para vislumbrar estrellas deportivas, ha puesto una
 academia para ayudar a jóvenes deportistas a lograr su mayor desempeño. En esta academia, el
 Maestro se enfoca particularmente en cuatro deportes: Fútbol, Basketball, Voleibol y Rugby.
-Si bien ha visto que la mayoría de atletas jóvenes disfrutan practicando varios deportes, más
-adelante podrían preferir especializarse en uno en particular.<br>
-Al haber trabajado con atletas por muchos años, el Maestro ha ido recolectando un extenso
-conjunto de datos, y se pregunta ahora si sería posible sacar provecho a toda esa información
-para predecir el deporte más apropiado para los nuevos atletas. Él desearía poder recomendar a
-estos atletas el deporte en que tendrían mayor éxito si se especializaran en él. </p>
-<h2 id="analisis-preliminar-de-datos">Análisis preliminar de Datos</h2>
-<table>
-<thead>
-<tr>
-<th><strong>Atributo</strong></th>
-<th><strong>Tipo</strong></th>
-<th><strong>Descripción</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Edad</td>
-<td>integer</td>
-<td>Edad del deportista</td>
-</tr>
-<tr>
-<td>Fuerza</td>
-<td>integer</td>
-<td>En base a ejercicios, en un rango del 0 al 10. Los resultados están entre 0 y 8</td>
-</tr>
-<tr>
-<td>Velocidad</td>
-<td>integer</td>
-<td>En base a un test, en un rango del 0 al 6</td>
-</tr>
-<tr>
-<td>Lesiones</td>
-<td>Binomial</td>
-<td>Si sufrió una lesión grave</td>
-</tr>
-<tr>
-<td>Visión</td>
-<td>integer</td>
-<td>En base a tests, en un rango del 0 al 4. Los resultados están entre 0 y 3</td>
-</tr>
-<tr>
-<td>Resistencia</td>
-<td>integer</td>
-<td>En base a ejercicios, en un rango de 0 a 10. Los resultados están entre 0 y 6</td>
-</tr>
-<tr>
-<td>Agilidad</td>
-<td>integer</td>
-<td>En base a pruebas, en un rango de 0 a 100. Los resultados están entre 13 y 80</td>
-</tr>
-<tr>
-<td>Capacidad Decisión</td>
-<td>integer</td>
-<td>En base a simulaciones, en un rango del 0 al 100. Los resultados válidos son entre 3 y 100</td>
-</tr>
-<tr>
-<td>Deporte Primario (var objetivo)</td>
-<td>polinomial</td>
-<td>Deporte que el atleta está mejor calificado a participar (fútbol, voleibol, rugby o basketball)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="tratamiento-de-datos">Tratamiento de Datos</h2>
-<ul>
-<li>Sabemos que el campo Capacidad Decisión tiene valores errados, los cuales debemos corregir. Al ser proporcionalmente pocos, los podemos eliminar.  </li>
-<li>Hay atributos cuyos dominios no están representados completamente por los datos, por lo que se puede subentrenar para datos fuera de lo que contamos.  </li>
-</ul>
-<h2 id="procedimiento-en-python">Procedimiento en Python</h2>
-<p>Primero importamos librerías y cargamos los dataset.  </p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">,</span> <span class="n">classification_report</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+Si …</p> </div><!-- /.entry-content -->
 
-<span class="n">input_file1</span> <span class="o">=</span> <span class="s2">&quot;sports_Scoring.csv&quot;</span>
-<span class="n">input_file2</span> <span class="o">=</span> <span class="s2">&quot;sports_Training.csv&quot;</span>
-<span class="n">dfScoring</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">input_file1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">dfTrain</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">input_file2</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">dfTrain</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-</code></pre></div>
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Edad</th>
-      <th>Fuerza</th>
-      <th>Velocidad</th>
-      <th>Lesiones</th>
-      <th>Vision</th>
-      <th>Resistencia</th>
-      <th>Agilidad</th>
-      <th>CapacidadDecision</th>
-      <th>DeportePrimario</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>184</th>
-      <td>15.8</td>
-      <td>3</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3</td>
-      <td>5</td>
-      <td>23</td>
-      <td>44</td>
-      <td>Rugby</td>
-    </tr>
-    <tr>
-      <th>160</th>
-      <td>18.8</td>
-      <td>7</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>3</td>
-      <td>24</td>
-      <td>20</td>
-      <td>Voleibol</td>
-    </tr>
-    <tr>
-      <th>272</th>
-      <td>13.3</td>
-      <td>3</td>
-      <td>2</td>
-      <td>0</td>
-      <td>3</td>
-      <td>5</td>
-      <td>22</td>
-      <td>45</td>
-      <td>Voleibol</td>
-    </tr>
-    <tr>
-      <th>431</th>
-      <td>18.3</td>
-      <td>4</td>
-      <td>2</td>
-      <td>1</td>
-      <td>2</td>
-      <td>5</td>
-      <td>25</td>
-      <td>3</td>
-      <td>Voleibol</td>
-    </tr>
-    <tr>
-      <th>131</th>
-      <td>14.5</td>
-      <td>5</td>
-      <td>3</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>42</td>
-      <td>19</td>
-      <td>Futbol</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<div class="codehilite"><pre><span></span><code><span class="n">dfTrain</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</code></pre></div>
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Edad</th>
-      <th>Fuerza</th>
-      <th>Velocidad</th>
-      <th>Lesiones</th>
-      <th>Vision</th>
-      <th>Resistencia</th>
-      <th>Agilidad</th>
-      <th>CapacidadDecision</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>493.000000</td>
-      <td>493.000000</td>
-      <td>493.000000</td>
-      <td>493.000000</td>
-      <td>493.000000</td>
-      <td>493.000000</td>
-      <td>493.000000</td>
-      <td>493.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>15.941785</td>
-      <td>3.519270</td>
-      <td>1.973631</td>
-      <td>0.638945</td>
-      <td>1.697769</td>
-      <td>3.849899</td>
-      <td>33.685598</td>
-      <td>30.172414</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>1.808235</td>
-      <td>1.464392</td>
-      <td>1.499768</td>
-      <td>0.480794</td>
-      <td>1.133352</td>
-      <td>1.330454</td>
-      <td>12.446329</td>
-      <td>21.484270</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>13.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>13.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>14.300000</td>
-      <td>3.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>23.000000</td>
-      <td>11.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>15.900000</td>
-      <td>4.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>2.000000</td>
-      <td>5.000000</td>
-      <td>32.000000</td>
-      <td>29.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>17.600000</td>
-      <td>4.000000</td>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>5.000000</td>
-      <td>42.000000</td>
-      <td>41.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>19.000000</td>
-      <td>7.000000</td>
-      <td>6.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>6.000000</td>
-      <td>80.000000</td>
-      <td>103.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<p>Tratamos los datos con lo especificado antes.  </p>
-<div class="codehilite"><pre><span></span><code><span class="n">dfCleanScoring</span> <span class="o">=</span> <span class="n">dfScoring</span><span class="p">[(</span><span class="n">dfScoring</span><span class="p">[</span><span class="s1">&#39;CapacidadDecision&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dfScoring</span><span class="p">[</span><span class="s1">&#39;CapacidadDecision&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)]</span>
-
-<span class="n">dfCleanTrain</span> <span class="o">=</span> <span class="n">dfTrain</span><span class="p">[(</span><span class="n">dfTrain</span><span class="p">[</span><span class="s1">&#39;CapacidadDecision&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dfTrain</span><span class="p">[</span><span class="s1">&#39;CapacidadDecision&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)]</span>
-
-<span class="n">dfCleanTrain</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</code></pre></div>
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Edad</th>
-      <th>Fuerza</th>
-      <th>Velocidad</th>
-      <th>Lesiones</th>
-      <th>Vision</th>
-      <th>Resistencia</th>
-      <th>Agilidad</th>
-      <th>CapacidadDecision</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>482.000000</td>
-      <td>482.000000</td>
-      <td>482.000000</td>
-      <td>482.000000</td>
-      <td>482.000000</td>
-      <td>482.000000</td>
-      <td>482.000000</td>
-      <td>482.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>15.954564</td>
-      <td>3.500000</td>
-      <td>1.983402</td>
-      <td>0.639004</td>
-      <td>1.692946</td>
-      <td>3.856846</td>
-      <td>33.680498</td>
-      <td>29.157676</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>1.817320</td>
-      <td>1.460854</td>
-      <td>1.505269</td>
-      <td>0.480788</td>
-      <td>1.134010</td>
-      <td>1.331782</td>
-      <td>12.523973</td>
-      <td>19.477265</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>13.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>13.000000</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>14.300000</td>
-      <td>3.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>23.000000</td>
-      <td>11.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>15.900000</td>
-      <td>4.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>2.000000</td>
-      <td>5.000000</td>
-      <td>31.500000</td>
-      <td>29.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>17.600000</td>
-      <td>4.000000</td>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>5.000000</td>
-      <td>42.750000</td>
-      <td>40.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>19.000000</td>
-      <td>7.000000</td>
-      <td>6.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>6.000000</td>
-      <td>80.000000</td>
-      <td>100.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<p>Separamos las entradas de la salida y dividimos los datos para entrenar y testear.  (Sobre el set de train)</p>
-<div class="codehilite"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">dfCleanTrain</span><span class="p">[[</span><span class="s1">&#39;Edad&#39;</span><span class="p">,</span><span class="s1">&#39;Fuerza&#39;</span><span class="p">,</span><span class="s1">&#39;Velocidad&#39;</span><span class="p">,</span><span class="s1">&#39;Lesiones&#39;</span><span class="p">,</span><span class="s1">&#39;Vision&#39;</span><span class="p">,</span><span class="s1">&#39;Resistencia&#39;</span><span class="p">,</span><span class="s1">&#39;Agilidad&#39;</span><span class="p">,</span><span class="s1">&#39;CapacidadDecision&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">dfCleanTrain</span><span class="p">[</span><span class="s1">&#39;DeportePrimario&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-
-<span class="n">train_X</span><span class="p">,</span> <span class="n">test_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Con los datos separados y definidos, entrenamos el modelo.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">lda</span> <span class="o">=</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">()</span>
-<span class="n">lda</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Y pasamos a la predicción y vemos el desempeño.  </p>
-<div class="codehilite"><pre><span></span><code><span class="n">y_pred</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_X</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_predictions</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>              precision    recall  f1-score   support
-
-  Basketball      0.600     0.176     0.273        34
-      Futbol      0.462     0.652     0.541        46
-       Rugby      0.375     0.545     0.444        33
-    Voleibol      0.273     0.188     0.222        32
-
-    accuracy                          0.414       145
-   macro avg      0.427     0.390     0.370       145
-weighted avg      0.433     0.414     0.386       145
+                                <div class="medium primary btn"><a href="https://salonso1602.github.io/investigacion-caso-academia-de-deportistas.html" rel="bookmark" title="Permalink to Investigación Caso: Academia de Deportistas">Read more <i class="icon-arrow-right"></i></a></div>
 
 
 
+                                <div class="row tag-row">
+                                </div>
 
 
 
-&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x2353fa68940&gt;
-</code></pre></div>
-
-<p><img alt="Pelican" src="../../images/ut3_ta7-ej2_files/ta7-ej2_14_2.png"></p>
-<h2 id="comparacion-rapidminer">Comparación RapidMiner</h2>
-<p>Procedemos a implementar el mismo proceso en RapidMiner para ver como se comparan los modelos que construyen.<br>
-<img alt="Pelican" src="../../images/ut3_ta7-ej2_files/image.png"><br>
-<img alt="Pelican" src="../../images/ut3_ta7-ej2_files/image-1.png">  </p>
-<h2 id="prediccion">Predicción</h2>
-<p>Ahora que tenemos el modelo entrenado y validado, podemos pasar a predecir para el set de scoring.<br>
-Para esto re-entrenamos el set con todos los datos de train que disponemos (tras limpieza), para asegurar el mejor performance posible.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">lda2</span> <span class="o">=</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">()</span>
-<span class="n">lda2</span> <span class="o">=</span> <span class="n">lda2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dfCleanTrain</span><span class="p">[[</span><span class="s1">&#39;Edad&#39;</span><span class="p">,</span><span class="s1">&#39;Fuerza&#39;</span><span class="p">,</span><span class="s1">&#39;Velocidad&#39;</span><span class="p">,</span><span class="s1">&#39;Lesiones&#39;</span><span class="p">,</span><span class="s1">&#39;Vision&#39;</span><span class="p">,</span><span class="s1">&#39;Resistencia&#39;</span><span class="p">,</span><span class="s1">&#39;Agilidad&#39;</span><span class="p">,</span><span class="s1">&#39;CapacidadDecision&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">dfCleanTrain</span><span class="p">[</span><span class="s1">&#39;DeportePrimario&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-
-<span class="n">scoringPred</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dfCleanScoring</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="nx">C</span><span class="p">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">gatom</span><span class="err">\</span><span class="nx">AppData</span><span class="err">\</span><span class="nx">Local</span><span class="err">\</span><span class="nx">Packages</span><span class="err">\</span><span class="nx">PythonSoftwareFoundation</span><span class="p">.</span><span class="nx">Python</span><span class="m m-Double">.3.9</span><span class="nx">_qbz5n2kfra8p0</span><span class="err">\</span><span class="nx">LocalCache</span><span class="err">\</span><span class="nx">local</span><span class="o">-</span><span class="nx">packages</span><span class="err">\</span><span class="nx">Python39</span><span class="err">\</span><span class="nx">site</span><span class="o">-</span><span class="nx">packages</span><span class="err">\</span><span class="nx">sklearn</span><span class="err">\</span><span class="kd">base</span><span class="p">.</span><span class="nx">py</span><span class="p">:</span><span class="mi">457</span><span class="p">:</span><span class="w"> </span><span class="nx">UserWarning</span><span class="p">:</span><span class="w"> </span><span class="nx">X</span><span class="w"> </span><span class="nx">has</span><span class="w"> </span><span class="nx">feature</span><span class="w"> </span><span class="nx">names</span><span class="p">,</span><span class="w"> </span><span class="nx">but</span><span class="w"> </span><span class="nx">LinearDiscriminantAnalysis</span><span class="w"> </span><span class="nx">was</span><span class="w"> </span><span class="nx">fitted</span><span class="w"> </span><span class="nx">without</span><span class="w"> </span><span class="nx">feature</span><span class="w"> </span><span class="nx">names</span>
-<span class="w">  </span><span class="nx">warnings</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1">#Vemos los primeros 15 resultados de ejemplo</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">scoringPred</span><span class="p">[:</span><span class="mi">16</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicciones Futbol:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">scoringPred</span> <span class="o">==</span> <span class="s1">&#39;Futbol&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicciones Voleibol:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">scoringPred</span> <span class="o">==</span> <span class="s1">&#39;Voleibol&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicciones Basketball:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">scoringPred</span> <span class="o">==</span> <span class="s1">&#39;Basketball&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicciones Rugby:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">scoringPred</span> <span class="o">==</span> <span class="s1">&#39;Rugby&#39;</span><span class="p">))</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>[&#39;Voleibol&#39; &#39;Rugby&#39; &#39;Futbol&#39; &#39;Rugby&#39; &#39;Rugby&#39; &#39;Rugby&#39; &#39;Futbol&#39; &#39;Rugby&#39;
- &#39;Futbol&#39; &#39;Voleibol&#39; &#39;Futbol&#39; &#39;Rugby&#39; &#39;Futbol&#39; &#39;Futbol&#39; &#39;Basketball&#39;
- &#39;Voleibol&#39;]
-Predicciones Futbol: 772
-Predicciones Voleibol: 366
-Predicciones Basketball: 139
-Predicciones Rugby: 490
-</code></pre></div>
-
-<p>En RapidMiner resulta:<br>
-<img alt="Pelican" src="../../images/ut3_ta7-ej2_files/image-2.png"><br>
-<img alt="Pelican" src="../../images/ut3_ta7-ej2_files/image-3.png"><br>
-<img alt="Pelican" src="../../images/ut3_ta7-ej2_files/image-4.png">  </p>
-<h1 id="conclusiones">Conclusiones</h1>
-<ul>
-<li>A pesar de no tener resultados excelentes, la precisión obtenida (~40%) es sustancialmente mejor que simplemente adivinar (que tendría un 25% probabilidad de acierto)  </li>
-<li>En comparación a RapidMiner, SKLearn predice mejor deportes como voleibol y rugby, dándole una precisión general mayor.  </li>
-<li>En la aplicación de modelo, ambos dan resultados diferentes. </li>
-<li>Como es esperado, el modelo de RapidMiner favorece las predicciones a fútbol, mientras que en SKLearn es más balanceado.</li>
-</ul>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://salonso1602.github.io/investigacion-caso-marketing-banco-portugues.html" rel="bookmark"
-                           title="Permalink to Investigación Caso: Marketing Banco Portugués">Investigación Caso: Marketing Banco Portugués</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2023-09-25T00:00:00-03:00">
-                Published: lun. 25 Setiembre 2023
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://salonso1602.github.io/author/salonso1602.html">salonso1602</a>
-        </address>
-<p>In <a href="https://salonso1602.github.io/category/3-investigacion-y-analisis.html">3. Investigación y Análisis</a>.</p>
-
-</footer><!-- /.post-info -->                <p>En el presente trabajo revisaremos y desarrollaremos el caso propuesto en el dataset Bank Marketing de UCI, que se puede hallar <a href="https://archive.ics.uci.edu/dataset/222/bank+marketing">aquí</a></p>
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="https://salonso1602.github.io/investigacion-caso-marketing-banco-portugues.html" rel="bookmark" title="Permalink to Investigación Caso: Marketing Banco Portugués">Investigación Caso: Marketing Banco Portugués</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2023-09-25T00:00:00-03:00"> lun. 25 Setiembre 2023 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="https://salonso1602.github.io/author/salonso1602.html"> salonso1602</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>En el presente trabajo revisaremos y desarrollaremos el caso propuesto en el dataset Bank Marketing de UCI, que se puede hallar <a href="https://archive.ics.uci.edu/dataset/222/bank+marketing">aquí</a></p>
 <h2 id="introduccion-al-caso">Introducción al Caso</h2>
 <h3 id="contexto">Contexto</h3>
-<p>Una institución bancaria de Portugal registra el desempeño de una campaña de marketing por teléfono, donde se registra la información del cliente, su experiencia …</p>
-                <a class="readmore" href="https://salonso1602.github.io/investigacion-caso-marketing-banco-portugues.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+<p>Una institución bancaria de Portugal registra el desempeño de una campaña de marketing por teléfono, donde se registra la información del cliente, su experiencia …</p> </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://salonso1602.github.io/evaluacion-de-set-wine.html" rel="bookmark"
-                           title="Permalink to Evaluación de Set "Wine"">Evaluación de Set "Wine"</a></h1>
-                </header>
+                                <div class="medium primary btn"><a href="https://salonso1602.github.io/investigacion-caso-marketing-banco-portugues.html" rel="bookmark" title="Permalink to Investigación Caso: Marketing Banco Portugués">Read more <i class="icon-arrow-right"></i></a></div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2023-08-22T00:00:00-03:00">
-                Published: mar. 22 Agosto 2023
-        </abbr>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://salonso1602.github.io/author/salonso1602.html">salonso1602</a>
-        </address>
-<p>In <a href="https://salonso1602.github.io/category/3-investigacion-y-analisis.html">3. Investigación y Análisis</a>.</p>
 
-</footer><!-- /.post-info -->                <h1 id="wine-dataset-investigacion-de-set">Wine Dataset: Investigación de set</h1>
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="https://salonso1602.github.io/evaluacion-de-set-wine.html" rel="bookmark" title="Permalink to Evaluación de Set "Wine"">Evaluación de Set "Wine"</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2023-08-22T00:00:00-03:00"> mar. 22 Agosto 2023 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="https://salonso1602.github.io/author/salonso1602.html"> salonso1602</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <h1 id="wine-dataset-investigacion-de-set">Wine Dataset: Investigación de set</h1>
 <p>Este set contiene 14 variables químicas de vino hechos en una región de Italia, pero de 3 viñedos diferentes. Es un set bastante limpio sin datos faltantes.<br>
-No presenta un problema como tal, sino que provee datos que nos permiten encontrar estructuras y consistencias entre …</p>
-                <a class="readmore" href="https://salonso1602.github.io/evaluacion-de-set-wine.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+No presenta un problema como tal, sino que provee datos que nos permiten encontrar estructuras y consistencias entre …</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="https://salonso1602.github.io/evaluacion-de-set-wine.html" rel="bookmark" title="Permalink to Evaluación de Set "Wine"">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
                 </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="https://archive.ics.uci.edu/datasets">UCI Datasets</a></li>
-                            <li><a href="https://www.python.org/">Python.org</a></li>
-                            <li><a href="https://rapidminer.com/">RapidMiner</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
 
-                            <li><a href="https://github.com/Salonso1602">Github</a></li>
-                            <li><a href="https://www.linkedin.com/in/santiago-rafael-alonso-mendez-374106218/">LinkedIn</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+        </div><!-- /.eleven.columns -->
+        
+<div class="three columns">
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
+  <h4>Pages</h4>
 
-                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+  <ul>
 
+  
+  <h4>Categories</h4>
+  <ul class="blank">
+    <li><a href="https://salonso1602.github.io/category/1-home.html">1. Home</a></li>
+    <li><a href="https://salonso1602.github.io/category/2-introducciones.html">2. Introducciones</a></li>
+    <li><a href="https://salonso1602.github.io/category/3-investigacion-y-analisis.html">3. Investigación y Análisis</a></li>
+    <li><a href="https://salonso1602.github.io/category/4-algoritmos-machine-learning.html">4. Algoritmos Machine Learning</a></li>
+  </ul>
+
+
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul class="blank">
+    <li><a href="https://github.com/Salonso1602">Github</a></li>
+    <li><a href="https://www.linkedin.com/in/santiago-rafael-alonso-mendez-374106218/">LinkedIn</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+<p class="paginator">
+    Page 1 / 1
+</p>
+</section><!-- /#content -->
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+                <li><div class="btn primary"><a href="https://github.com/Salonso1602" target="_blank">Github</a></div></li>
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="https://salonso1602.github.io/theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="https://salonso1602.github.io/theme/js/libs/gumby.min.js"></script>
+  <script src="https://salonso1602.github.io/theme/js/plugins.js"></script>
 </body>
 </html>
