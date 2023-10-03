@@ -72,10 +72,10 @@ html * {
 }
 
 body {
-  background: white;
+  background: #272626;
   font-family: "Open Sans";
   font-weight: 400;
-  color: #555555;
+  color: #FFFFFF;
   position: relative;
   -webkit-font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
@@ -134,14 +134,14 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans";
   font-weight: 300;
-  color: #444444;
+  color: #ffffff;
   text-rendering: optimizeLegibility;
   padding-top: 0.273em;
   line-height: 1.15538em;
   padding-bottom: 0.273em;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  color: #d04526;
+  color: #e0c212;
 }
 
 @media only screen and (max-width: 767px) {
@@ -203,7 +203,7 @@ h6 {
   }
 }
 .subhead {
-  color: #777;
+  color: #caaf13;
   font-weight: normal;
   margin-bottom: 20px;
 }
@@ -318,7 +318,7 @@ small {
 }
 
 h1 small, h2 small, h3 small, h4 small, h5 small {
-  color: #777;
+  color: #ffffff;
 }
 
 /*  Blockquotes  */
