@@ -14,7 +14,7 @@ pre {
   padding: 0 3px 2px;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   font-size: 12px;
-  color: #333333;
+  color: #cac9c9;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
@@ -24,8 +24,8 @@ code {
   padding: 2px 4px;
   color: #d14;
   white-space: nowrap;
-  background-color: #f7f7f9;
-  border: 1px solid #e1e1e8;
+  background-color: #0c0c0c;
+  border: 1px solid #e0c212;
 }
 
 pre {
@@ -38,7 +38,7 @@ pre {
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
-  background-color: #f5f5f5;
+  background-color: #0c0c0c;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   -webkit-border-radius: 4px;
@@ -204,7 +204,7 @@ ul.blank {
 
 /* Footer
 --------------------------------------------------------- */
-.bg { background:#eee; margin-top:35px; padding-top:25px; border-top:5px solid #e0c212; }
+.bg { background:#0c0c0c; margin-top:35px; padding-top:25px; border-top:5px solid #e0c212; }
 
 
 

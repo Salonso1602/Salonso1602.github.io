@@ -999,7 +999,7 @@ img {
   min-height: 60px;
   display: block;
   margin-bottom: 20px;
-  background: #4a4d50;
+  background: #0c0c0c;
 }
 @media only screen and (max-width: 767px) {
   .navbar {
@@ -1610,14 +1610,14 @@ img {
   border-radius: 0 500px 500px 0;
 }
 .btn.primary, .skiplink.primary {
-  background: #3085d6;
+  background: #e0c212;
   border: 1px solid #3085d6;
 }
 .btn.primary:hover, .skiplink.primary:hover {
-  background: #5b9ede;
+  background: #f7d515;
 }
 .btn.primary:active, .skiplink.primary:active {
-  background: #236bb0;
+  background: #bda30f;
 }
 .btn.secondary, .skiplink.secondary {
   background: #42a35a;
