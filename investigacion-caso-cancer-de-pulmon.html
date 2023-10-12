@@ -65,41 +65,37 @@
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <h2 id="investigacion-de-caso-lung-cancer">Investigación de Caso Lung Cancer</h2>
-<h3 id="de-uci-dataset-lung-cancer">de UCI Dataset: <a href="https:/archive.ics.uci.edu/dataset/62/lung+cancer">Lung Cancer</a></h3>
+              <h3 id="de-uci-dataset-lung-cancer">de UCI Dataset: <a href="https:/archive.ics.uci.edu/dataset/62/lung+cancer">Lung Cancer</a></h3>
 <h2 id="introduccion">Introducción</h2>
 <p>Este caso plantea un problema particular, al contarse con muy poca información respecto el contexto y significado de los datos, el amplio numero de atributos y los desbalanceos en los datos de cada atributo. Este ejercicio de clasificación presenta el problema de identificar entre 3 tipos de Cancer de Pulmón a partir de un conjunto reducido de datos pero con muchos atributos.  </p>
 <h2 id="resumen-y-estadisticas-del-set">Resumen y Estadísticas del Set</h2>
 <table>
-<thead>
-<tr>
-<th><strong>Característica</strong></th>
-<th><strong>Descripción</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cant. de Ejemplos</td>
-<td>32</td>
-</tr>
-<tr>
-<td>Cant. de Atributos</td>
-<td>56</td>
-</tr>
-<tr>
-<td>Tipo Ejercicio</td>
-<td>Clasificación</td>
-</tr>
-<tr>
-<td>Variable Objetivo</td>
-<td>att1: Tipo categórico (1 al 3)</td>
-</tr>
-<tr>
-<td>Tipos Atributos</td>
-<td>Todos los atributos son categóricos, con valores entre 0 y 3</td>
-</tr>
-</tbody>
+  <tr>
+    <th><strong>Característica</strong></th>
+    <th><strong>Descripción</strong></th>
+  </tr>
+  <tr>
+    <td>Cant. de Ejemplos</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>Cant. de Atributos</td>
+    <td>56</td>
+  </tr>
+  <tr>
+    <td>Tipo Ejercicio</td>
+    <td>Clasificación</td>
+  </tr>
+  <tr>
+    <td>Variable Objetivo</td>
+    <td>att1: Tipo categórico (1 al 3)</td>
+  </tr>
+  <tr>
+    <td>Tipos Atributos</td>
+    <td>Todos los atributos son categóricos, con valores entre 0 y 3</td>
+  </tr>
 </table>
+
 <p><strong>Estadísticas</strong><br>
 <img alt="Pelican" src="../../images/casosExtra/lungCancer/image.png"><img alt="Pelican" src="../../images/casosExtra/lungCancer/image-1.png"><img alt="Pelican" src="../../images/casosExtra/lungCancer/image-2.png"><img alt="Pelican" src="../../images/casosExtra/lungCancer/image-3.png"><img alt="Pelican" src="../../images/casosExtra/lungCancer/image-5.png"><img alt="Pelican" src="../../images/casosExtra/lungCancer/image-6.png"><img alt="Pelican" src="../../images/casosExtra/lungCancer/image-7.png"><img alt="Pelican" src="../../images/casosExtra/lungCancer/image-8.png"><img alt="Pelican" src="../../images/casosExtra/lungCancer/image-9.png"><img alt="Pelican" src="../../images/casosExtra/lungCancer/image-10.png">  </p>
 <h2 id="revision-de-datos">Revisión de Datos</h2>
@@ -134,36 +130,102 @@ att20, att21, att24, att54 <br>
 Total: 4  </p>
 <p>PerformanceVector:
 - accuracy: 81.67% +/- 25.40% (micro average: 81.25%)  </p>
-<p>ConfusionMatrix:<br>
-|True:|1|2|3|
-|---|---|---|---|
-|1: |8  |2  |0 |
-|2: |1  |10|    2|
-|3: |0  |1  |8 |</p>
+<p>ConfusionMatrix:  </p>
+<table>
+  <tr>
+    <th></th>
+    <th>True: 1</th>
+    <th>True: 2</th>
+    <th>True: 3</th>
+  </tr>
+  <tr>
+    <td>1:</td>
+    <td>8</td>
+    <td>2</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>2:</td>
+    <td>1</td>
+    <td>10</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>3:</td>
+    <td>0</td>
+    <td>1</td>
+    <td>8</td>
+  </tr>
+</table>
+
 <h4 id="backward-selection">Backward Selection</h4>
 <p>Atributos Seleccionados:<br>
 att2, att3, att5, att7, att8, att9, att11, att12, att13, att14, att15, att17, att18, att19, att20, att21, att22, att24, att25, att26, att27, att28, att29, att30, att31, att32, att33, att34, att36, att37, att38, att39, att40, att41, att42, att43, att44, att45, att46, att47, att48, att49, att51, att52, att53, att54, att55, att57 <br>
 Total: 48   </p>
 <p>PerformanceVector:<br>
 accuracy: 75.83% +/- 28.45% (micro average: 75.00%)  </p>
-<p>ConfusionMatrix:<br>
-|True:| 1|  2|  3|
-|---|---|---|---|
-|1:|    8|  2|  0|
-|2:|    1|  9|  3|
-|3:|    0|  2|  7|</p>
+<p>ConfusionMatrix:  </p>
+<table>
+  <tr>
+    <th>True:</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+  </tr>
+  <tr>
+    <td>1:</td>
+    <td>8</td>
+    <td>2</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>2:</td>
+    <td>1</td>
+    <td>9</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>3:</td>
+    <td>0</td>
+    <td>2</td>
+    <td>7</td>
+  </tr>
+</table>
+
 <h4 id="evolutionary-selection">Evolutionary Selection</h4>
 <p>Atributos Seleccionados:<br>
 att2, att3, att6, att7, att9, att11, att14, att17, att19, att20, att22, att24, att26, att29, att30, att32, att34, att36, att37, att39, att42, att44, att47, att48, att49, att53, att54, att55, att57 <br>
 Total: 29 atributos  </p>
 <p>PerformanceVector:<br>
 accuracy: 84.17% +/- 16.87% (micro average: 84.38%)   </p>
-<p>ConfusionMatrix:<br>
-|True:| 1|  2|  3|
-|---|---|---|---|
-|1:|    8|  1|  0|
-|2:|    1|  11| 2|
-|3:|    0|  1|  8|</p>
+<p>ConfusionMatrix:  </p>
+<table>
+  <tr>
+    <th>True:</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+  </tr>
+  <tr>
+    <td>1:</td>
+    <td>8</td>
+    <td>1</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>2:</td>
+    <td>1</td>
+    <td>11</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>3:</td>
+    <td>0</td>
+    <td>1</td>
+    <td>8</td>
+  </tr>
+</table>
+
 <h3 id="k-nn">K-NN</h3>
 <h4 id="forward-selection_1">Forward Selection</h4>
 <p>Atributos Seleccionados:<br>
@@ -171,36 +233,102 @@ att7, att41<br>
 Total: 2  </p>
 <p>PerformanceVector:<br>
 accuracy: 67.50% +/- 26.77% (micro average: 65.62%)<br>
-ConfusionMatrix:<br>
-|True:| 1|  2|  3|<br>
-|---|---|---|---|
-|1:|    8|  3|  1|<br>
-|2:|    1|  10| 6|<br>
-|3:|    0|  0|  3|  </p>
+ConfusionMatrix:  </p>
+<table>
+  <tr>
+    <th>True:</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+  </tr>
+  <tr>
+    <td>1:</td>
+    <td>8</td>
+    <td>3</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>2:</td>
+    <td>1</td>
+    <td>10</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>3:</td>
+    <td>0</td>
+    <td>0</td>
+    <td>3</td>
+  </tr>
+</table>
+
 <h4 id="backward-selection_1">Backward Selection</h4>
 <p>Atributos Seleccionados:<br>
 att3, att4, att5, att7, att8, att9, att10, att11, att13, att14, att16, att17, att18, att19, att20, att21, att22, att23, att24, att25, att26, att27, att28, att29, att30, att31, att32, att33, att34, att35, att36, att37, att38, att39, att40, att41, att42, att43, att44, att45, att46, att47, att48, att49, att50, att51, att52, att53, att54, att55, att56 <br>
 Total: 51 </p>
 <p>PerformanceVector:<br>
 accuracy: 63.33% +/- 34.29% (micro average: 62.50%)<br>
-ConfusionMatrix:<br>
-|True:| 1|  2|  3|<br>
-|---|---|---|---|
-|1:|    7|  2|  1|<br>
-|2:|    1|  9|  5|<br>
-|3:|    1|  2|  4|  </p>
+ConfusionMatrix:  </p>
+<table>
+  <tr>
+    <th>True:</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+  </tr>
+  <tr>
+    <td>1:</td>
+    <td>7</td>
+    <td>2</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>2:</td>
+    <td>1</td>
+    <td>9</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>3:</td>
+    <td>1</td>
+    <td>2</td>
+    <td>4</td>
+  </tr>
+</table>
+
 <h4 id="evolutionary-selection_1">Evolutionary Selection</h4>
 <p>Atributos Seleccionados:<br>
 att2, att3, att6, att8, att9, att11, att14, att17, att19, att20, att24, att30, att33, att34, att35, att36, att38, att40, att42, att46, att53, att54, att55, att56, att57 <br>
 Total: 25   </p>
 <p>PerformanceVector:<br>
 accuracy: 73.33% +/- 25.09% (micro average: 71.88%)<br>
-ConfusionMatrix:<br>
-|True:| 1|  2|  3|<br>
-|---|---|---|---|<br>
-|1:|    6|  3|  0|<br>
-|2:|    3|  10| 3|<br>
-|3:|    0|  0|  7|  </p>
+ConfusionMatrix:  </p>
+<table>
+  <tr>
+    <th>True:</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+  </tr>
+  <tr>
+    <td>1:</td>
+    <td>6</td>
+    <td>3</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>2:</td>
+    <td>3</td>
+    <td>10</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>3:</td>
+    <td>0</td>
+    <td>0</td>
+    <td>7</td>
+  </tr>
+</table>
+
 <h2 id="conclusionesobservaciones">Conclusiones/Observaciones</h2>
 <ul>
 <li>Considerando una base de predicción de 33% por elección aleatoria, se lograron buenos modelos con precisiones que superan el 60%  </li>
